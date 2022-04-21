@@ -458,18 +458,6 @@ collections:
             label: Text
             name: '-7c112e99'
             widget: string
-          - hint: 'Original text: work with our expert team, key: 6c9e2614'
-            label: Text
-            name: 6c9e2614
-            widget: string
-          - hint: 'Original text: custom design, key: 269d0d4d'
-            label: Text
-            name: 269d0d4d
-            widget: string
-          - hint: 'Original text: make an appointment, key: -5293df62'
-            label: Text
-            name: '-5293df62'
-            widget: string
           - hint: 'Original text: INTERIORS, key: -3bf0ef5d'
             label: Text
             name: '-3bf0ef5d'
@@ -491,6 +479,18 @@ collections:
           - hint: 'Original text: good things are on the way, key: -7d0f781d'
             label: Text
             name: '-7d0f781d'
+            widget: string
+          - hint: 'Original text: work with our expert team, key: 6c9e2614'
+            label: Text
+            name: 6c9e2614
+            widget: string
+          - hint: 'Original text: custom design, key: 269d0d4d'
+            label: Text
+            name: 269d0d4d
+            widget: string
+          - hint: 'Original text: make an appointment, key: -5293df62'
+            label: Text
+            name: '-5293df62'
             widget: string
       - label: Links
         name: links
@@ -550,19 +550,6 @@ collections:
                 required: false
           - label: Image
             name: a123b68
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '0'
             widget: object
             fields:
               - name: url

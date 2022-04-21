@@ -106,54 +106,54 @@
         <div id="w-node-e2e5467c-c5ae-4ad7-b602-bc8be50db3f5-71844f24" class="position-realtive">
           <div style="opacity:0" class="w-layout-grid blog-overview-grid">
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7535-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
                       <div class="blog-teaser-date"> </div>
-                      <a href="{{ links.23 }}" class="buynow">{{ texts.71bb21fc }}</a>
+                      <a href="{{ item.data.f_buy-now }}" class="buynow">{{ texts.71bb21fc }}</a>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7547-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 1 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <a href="{{ links.23 }}" class="buynow">{{ texts.71bb21fc }}</a>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      <a href="{{ item.data.f_buy-now }}" class="buynow">{{ texts.71bb21fc }}</a>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7559-71844f24" class="blog-teaser-item-wrapper quote">
@@ -165,128 +165,128 @@
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7560-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 2 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <div class="blog-teaser-date"> </div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      {%- if item.data.created-on -%}<div class="blog-teaser-date"> </div>{%- endif -%}
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7572-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 3 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
                       <div class="blog-teaser-date"> </div>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7584-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 4 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <div class="blog-teaser-date"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      <div class="blog-teaser-date">{{ item.data.published-on | formatDate: "M/d/yyyy" }}</div>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb7596-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 5 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <div class="blog-teaser-date"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      <div class="blog-teaser-date">{{ item.data.published-on | formatDate: "M/d/yyyy" }}</div>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb75a8-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 6 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <div class="blog-teaser-date"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      <div class="blog-teaser-date">{{ item.data.published-on | formatDate: "M/d/yyyy" }}</div>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb75ba-71844f24" class="blog-teaser-item-wrapper page-teaser">
@@ -301,7 +301,7 @@
                   </div>
                   <div class="p-xs-start"></div>
                 </div>
-                <div class="page-teaser-gradient"></div><img src="{{ images.-1f79531f.url }}" loading="lazy" sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, 93vw" alt="{{ images.-1f79531f.alt | trim | escape }}" class="page-teaser-image">
+                <div class="page-teaser-gradient"></div><img src="{{ images.-1f79531f.url }}" loading="lazy" data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;90vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;94vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;93vw&quot;}]" sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, 93vw" alt="{{ images.-1f79531f.alt | trim | escape }}" class="page-teaser-image">
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb75c7-71844f24" class="blog-teaser-item-wrapper">
@@ -334,53 +334,53 @@
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb75d5-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 7 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <div class="blog-teaser-date"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      <div class="blog-teaser-date">{{ item.data.published-on | formatDate: "M/d/yyyy" }}</div>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
             <div id="w-node-_117d1d6a-d362-3aba-1b79-676845fb75e7-71844f24" class="blog-teaser-item-wrapper">
-              <div class="blog-teaser-list-wrapper w-dyn-list">
-                <div role="list" class="blog-teaser-list w-dyn-items">
-                  <div role="listitem" class="blog-teaser-item w-dyn-item">
+              {%- assign collection = collections.post | sort: "-created-on" | offset: 8 | limit: 1 -%}<div class="blog-teaser-list-wrapper w-dyn-list">
+                {%- unless collection.length == 0 -%}<div role="list" class="blog-teaser-list w-dyn-items">
+                  {%- for item in collection -%}<div role="listitem" class="blog-teaser-item w-dyn-item">
                     <div class="blog-teaser-meta-wrapper">
-                      <div class="blog-teaser-category"></div>
-                      <div class="blog-teaser-date"></div>
+                      {%- assign categoryOfPost = item.data.f_category | resolveReference -%}<div class="blog-teaser-category">{{ categoryOfPost.data.title }}</div>
+                      <div class="blog-teaser-date">{{ item.data.published-on | formatDate: "M/d/yyyy" }}</div>
                     </div>
-                    <a href="{{ links.23 }}" class="blog-teaser-image-wrapper w-inline-block">
-                      <div class="blog-teaser-image-inner"><img src="{{ images.0.url }}" loading="lazy" alt="{{ images.0.alt | trim | escape }}" class="blog-teaser-image"></div>
+                    <a href="{{ item.url }}" class="blog-teaser-image-wrapper w-inline-block">
+                      <div class="blog-teaser-image-inner"><img data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;80vw&quot;},{&quot;max&quot;:767,&quot;size&quot;:&quot;83vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;84vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;88vw&quot;}]" loading="lazy" src="{{ item.data.f_thumbnail-image.url }}" alt="{{ item.data.title }}" class="blog-teaser-image"></div>
                     </a>
                     <div class="blog-teaser-text-wrapper">
-                      <a href="{{ links.23 }}" class="blog-teaser-title-wrapper w-inline-block">
-                        <div class="blog-teaser-title"></div>
+                      <a href="{{ item.url }}" class="blog-teaser-title-wrapper w-inline-block">
+                        <div class="blog-teaser-title">{{ item.data.title }}</div>
                       </a>
                       <div class="blog-teaser-text-divider">{{ texts.2013 }}</div>
-                      <p class="blog-teaser-summary"></p>
+                      <p class="blog-teaser-summary">{{ item.data.f_post-summary }}</p>
                     </div>
-                  </div>
-                </div>
-                <div class="w-dyn-empty">
+                  </div>{%- endfor -%}
+                </div>{%- endunless -%}
+                {%- if collection.length == 0 -%}<div class="w-dyn-empty">
                   <div>{{ texts.3d503d2b }}</div>
-                </div>
+                </div>{%- endif -%}
               </div>
             </div>
           </div>
