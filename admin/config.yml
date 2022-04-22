@@ -409,6 +409,10 @@ collections:
             label: Text
             name: '-5ae80293'
             widget: string
+          - hint: 'Original text: copyright 2020 Hagen Black Interiors, key: c30eeee'
+            label: Text
+            name: c30eeee
+            widget: string
           - hint: "Original text: Martha believes strongly in the power of good design to affect our lives. \_Good design employs a thoughtful consideration of light, scale, balance, proportion and function. It is these aspects that have the ability to not only make a space beautiful, but can make a space increase our well-being, calm us, nurture and even inspire us. Good design is not about a particular style, but about creating this well-being in a home that is a true reflection of the people living in it. , key: -66483142"
             label: Text
             name: '-66483142'
@@ -458,6 +462,18 @@ collections:
             label: Text
             name: '-7c112e99'
             widget: string
+          - hint: 'Original text: work with our expert team, key: 6c9e2614'
+            label: Text
+            name: 6c9e2614
+            widget: string
+          - hint: 'Original text: custom design, key: 269d0d4d'
+            label: Text
+            name: 269d0d4d
+            widget: string
+          - hint: 'Original text: make an appointment, key: -5293df62'
+            label: Text
+            name: '-5293df62'
+            widget: string
           - hint: 'Original text: INTERIORS, key: -3bf0ef5d'
             label: Text
             name: '-3bf0ef5d'
@@ -479,18 +495,6 @@ collections:
           - hint: 'Original text: good things are on the way, key: -7d0f781d'
             label: Text
             name: '-7d0f781d'
-            widget: string
-          - hint: 'Original text: work with our expert team, key: 6c9e2614'
-            label: Text
-            name: 6c9e2614
-            widget: string
-          - hint: 'Original text: custom design, key: 269d0d4d'
-            label: Text
-            name: 269d0d4d
-            widget: string
-          - hint: 'Original text: make an appointment, key: -5293df62'
-            label: Text
-            name: '-5293df62'
             widget: string
       - label: Links
         name: links
